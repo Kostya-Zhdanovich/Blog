@@ -15,6 +15,7 @@ import { searchSelectors } from '../../store/Search/searchSelectors';
 import { MainPageWrapper , MainPageTabs , MainPageContent , 
     PostCardWrapper , PostsMainSection , PostsAside , MainPageTitle , 
     FavouritePostsContent , PopularPostsContent , MainPagePagination, SearchPageContent} from './styles';
+import SelectPagination from '../../components/Pagination/Select/Select';
 
 const MainPage = () => {
     const posts = useTypedSelector(state => state.posts.allPosts);
@@ -74,7 +75,7 @@ const MainPage = () => {
                         </PostsAside>   
                     </MainPageContent>
                     <MainPagePagination>
-                        {/* <SelectPagination value={perPage} label='Per Page' onBtnClick={(e) => {setPerPage(e.target.value)}}/> */}
+                        <SelectPagination value={perPage} label='Per Page' onBtnClick={(e) => {setPerPage(e.target.value)}}/>
                         <PaginationBar count={pagesNumber} onBtnClick={(e, pagesNumber) => getPostsAsync(perPage, (pagesNumber - 1) * perPage)}/>
                     </MainPagePagination>
                 </div>                
